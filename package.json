@@ -5,7 +5,8 @@
   "scripts": {
     "check": "node scripts/check-preview.js",
     "build": "node scripts/build-preview.js",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test scripts/test/*.test.js"
   },
   "dependencies": {
     "ajv": "8.20.0",

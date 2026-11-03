@@ -22,17 +22,22 @@ function App() {
     loadContent(preview)
       .then(setData)
       .catch((e) => setError(e.message));
+    let previousPath = location.hash.split("?")[0];
     const onHash = () => {
+      const nextPath = location.hash.split("?")[0];
       setRoute(location.hash.replace(/^#\/?/, "").replace(/\/$/, ""));
-      window.scrollTo({ top: 0, behavior: "instant" });
+      if (nextPath !== previousPath)
+        window.scrollTo({ top: 0, behavior: "instant" });
+      previousPath = nextPath;
     };
     addEventListener("hashchange", onHash);
     return () => removeEventListener("hashchange", onHash);
   }, []);
-  usePageMotion(route, !!data);
+  const routePath = route.split("?")[0];
+  usePageMotion(routePath, !!data);
   useEffect(() => {
     if (!data) return;
-    const [k, id] = route.split("/");
+    const [k, id] = routePath.split("/");
     const title =
       k === "case"
         ? data.cases.find((c) => c.id === id)?.client
@@ -63,12 +68,12 @@ function App() {
         <p>让好内容，真正发生。</p>
       </main>
     );
-  const [k, id] = route.split("/");
+  const [k, id] = routePath.split("/");
   let page =
     k === "" ? (
       <Home data={data} />
     ) : k === "cases" ? (
-      <Cases data={data} />
+      <Cases data={data} hash={"#/" + route} />
     ) : k === "case" ? (
       <CaseDetail data={data} id={id} />
     ) : k === "teams" ? (
@@ -101,8 +106,8 @@ function App() {
       >
         跳到正文
       </a>
-      <Header route={route} site={data.site} />
-      <main id="main" tabIndex={-1} key={route}>
+      <Header route={routePath} site={data.site} />
+      <main id="main" tabIndex={-1} key={routePath}>
         {page}
       </main>
       <Footer site={data.site} />

@@ -40,11 +40,11 @@ function CaseVisual({ item, hero = false }) {
   );
 }
 
-function CaseCard({ item, index, featured = false }) {
+function CaseCard({ item, index, featured = false, reveal = true }) {
   return (
     <article
       className={"case-card " + (featured ? "featured-card" : "")}
-      data-reveal
+      data-reveal={reveal ? "" : undefined}
     >
       <a
         href={href("case/" + item.id)}

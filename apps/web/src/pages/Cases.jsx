@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   Arrow,
   href,
@@ -9,18 +9,52 @@ import {
   NotFound,
 } from "../components/ui.jsx";
 import { CaseCard, CaseVisual, Source } from "../components/work.jsx";
-function Cases({ data }) {
-  const [category, setCategory] = useState("全部项目"),
-    [q, setQ] = useState("");
-  const cats = ["全部项目", ...new Set(data.cases.map((c) => c.category))];
-  const list = data.cases.filter(
-    (c) =>
-      (category === "全部项目" || c.category === category) &&
-      [c.client, c.name, c.summary]
-        .join(" ")
-        .toLowerCase()
-        .includes(q.toLowerCase()),
+import {
+  createCaseIndex,
+  findCases,
+  readCaseFilters,
+  caseFilterHash,
+} from "../lib/case-discovery.js";
+import {
+  rootTeams,
+  teamPath,
+} from "../../../../packages/contracts/organization.js";
+import "../case-discovery.css";
+
+function Cases({ data, hash }) {
+  const [filters, setFilters] = useState(() =>
+    readCaseFilters(location.hash, data),
   );
+  const [copyStatus, setCopyStatus] = useState("");
+  const index = useMemo(() => createCaseIndex(data), [data]);
+  useEffect(() => {
+    setFilters(readCaseFilters(hash, data));
+    setCopyStatus("");
+  }, [hash, data]);
+  const list = findCases(index, filters);
+  const categories = [...new Set(data.cases.map((c) => c.category))];
+  const active = filters.q || filters.team || filters.category;
+  function update(next) {
+    const value = { ...filters, ...next };
+    setFilters(value);
+    setCopyStatus("");
+    history.replaceState(
+      history.state,
+      "",
+      location.pathname + location.search + caseFilterHash(value),
+    );
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+  }
+  async function copyLink() {
+    const url = new URL(location.href);
+    url.hash = caseFilterHash(filters);
+    try {
+      await navigator.clipboard.writeText(url.href);
+      setCopyStatus("链接已复制，可直接分享当前筛选。");
+    } catch {
+      setCopyStatus("请复制浏览器地址栏中的链接分享。");
+    }
+  }
   return (
     <section className="wrap page-main">
       <div className="page-heading">
@@ -34,56 +68,124 @@ function Cases({ data }) {
           </p>
         </div>
       </div>
-      <div className="work-tools" data-enter>
-        <div className="filter-tabs" aria-label="案例分类">
-          {cats.map((c) => (
-            <button
-              aria-pressed={category === c}
-              className={category === c ? "selected" : ""}
-              key={c}
-              onClick={() => setCategory(c)}
+      <div className="case-discovery" role="search" aria-label="查找项目案例">
+        <div className="case-search-row">
+          <label className="case-query">
+            <span>找一个合适的案例</span>
+            <div>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden="true"
+              >
+                <circle cx="10" cy="10" r="6" />
+                <path d="m15 15 6 6" />
+              </svg>
+              <input
+                name="case-search"
+                type="search"
+                autoComplete="off"
+                maxLength={200}
+                value={filters.q}
+                onChange={(e) => update({ q: e.target.value })}
+                placeholder="品牌、内容关键词或成员姓名…"
+              />
+            </div>
+          </label>
+          <label className="case-team-filter">
+            <span>按团队与小组查找</span>
+            <select
+              name="case-team"
+              value={filters.team}
+              onChange={(e) => update({ team: e.target.value })}
             >
-              {c}
-              {c === category && <sup>{list.length}</sup>}
+              <option value="">全部团队</option>
+              {rootTeams(data.teams).map((team) => (
+                <optgroup label={team.name} key={team.id}>
+                  <option value={team.id}>{team.name} · 全部</option>
+                  {data.teams
+                    .filter(
+                      (group) =>
+                        group.id !== team.id &&
+                        teamPath(data.teams, group.id).some(
+                          (t) => t.id === team.id,
+                        ),
+                    )
+                    .map((group) => (
+                      <option key={group.id} value={group.id}>
+                        {teamPath(data.teams, group.id)
+                          .slice(1)
+                          .map((t) => t.name)
+                          .join(" / ")}
+                      </option>
+                    ))}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div className="case-keywords" aria-label="常用内容关键词">
+          <span>试试找</span>
+          {["海报", "故事", "短视频", "直播", "数字人"].map((q) => (
+            <button
+              key={q}
+              aria-pressed={filters.q === q}
+              onClick={() => update({ q })}
+            >
+              {q}
+              <Arrow diagonal />
             </button>
           ))}
         </div>
-        <label className="search">
-          <span className="sr-only">搜索项目</span>
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="搜索品牌 / 项目"
-          />
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            aria-hidden="true"
-          >
-            <circle cx="10" cy="10" r="6" />
-            <path d="m15 15 6 6" />
-          </svg>
-        </label>
+        <div className="filter-tabs case-category-tabs" aria-label="案例分类">
+          {["", ...categories].map((category) => (
+            <button
+              key={category}
+              aria-pressed={filters.category === category}
+              className={filters.category === category ? "selected" : ""}
+              onClick={() => update({ category })}
+            >
+              {category || "全部项目"}
+            </button>
+          ))}
+        </div>
       </div>
-      <p className="result-count" aria-live="polite">
-        {pad(list.length)} 个项目
+      <div className="case-results-head">
+        <p className="result-count" role="status">
+          找到 <strong>{pad(list.length)}</strong> / {data.cases.length} 个项目
+        </p>
+        <div>
+          {active && (
+            <button
+              className="case-reset"
+              onClick={() => update({ q: "", category: "", team: "" })}
+            >
+              清除筛选
+            </button>
+          )}
+          <button className="case-share" onClick={copyLink}>
+            复制筛选链接 <Arrow diagonal />
+          </button>
+        </div>
+      </div>
+      <p className="case-copy-status" role="status">
+        {copyStatus}
       </p>
       <div className="case-library">
         {list.map((c, i) => (
-          <CaseCard key={c.id} item={c} index={i} />
+          <CaseCard key={c.id} item={c} index={i} reveal={false} />
         ))}
       </div>
       {!list.length && (
-        <div className="empty">
-          <h2>暂时没有匹配的项目</h2>
-          <button
-            onClick={() => {
-              setQ("");
-              setCategory("全部项目");
-            }}
-          >
+        <div className="empty case-empty">
+          <Label>KEEP EXPLORING</Label>
+          <h2>暂时没有匹配的公开案例</h2>
+          <p>
+            试试更短的关键词，或清除团队与分类限制。尚未收录的作品会在资料补齐后更新。
+          </p>
+          <button onClick={() => update({ q: "", category: "", team: "" })}>
             查看全部项目 ↗
           </button>
         </div>
