@@ -1305,7 +1305,7 @@ footer {
   border-top: 1px solid var(--line);
   padding-top: 28px;
 }
-.experience > p {
+.experience .profile-paragraphs > p {
   font-size: 13px;
   line-height: 2;
   white-space: pre-line;
@@ -2196,7 +2196,7 @@ footer {
     font-size: 14px;
     margin-top: 25px;
   }
-  .experience > p {
+  .experience .profile-paragraphs > p {
     font-size: 12px;
   }
   .about-grid {

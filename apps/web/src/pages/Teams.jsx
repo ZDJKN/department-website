@@ -10,6 +10,7 @@ import {
 import { Organization } from "../components/Organization.jsx";
 import { MemberImage } from "../components/MemberLink.jsx";
 import { CaseCard, Source } from "../components/work.jsx";
+import { profileParagraphs } from "../lib/profile-copy.js";
 import {
   childTeams,
   teamMembers,
@@ -194,7 +195,13 @@ function Person({ data, id }) {
           {member.experience && (
             <div className="experience">
               <Label>专业经历</Label>
-              <p>{member.experience}</p>
+              <div className="profile-paragraphs">
+                {profileParagraphs(member.experience).map(
+                  (paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ),
+                )}
+              </div>
             </div>
           )}
           {hasProfileDetails && (
