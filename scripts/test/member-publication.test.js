@@ -49,3 +49,25 @@ test("identity-only projection preserves permitted fields and leaves other profi
   const other = { ...raw, id: "unrestricted-test" };
   assert.equal(publicMember(other), other);
 });
+
+test("directory-only additions keep biography, photos and project claims out of a future export", () => {
+  for (const id of ["member-chen-zile", "member-wu-xueqing"]) {
+    const basic = {
+      ...identity,
+      id,
+      name: id === "member-chen-zile" ? "陈梓乐" : "吴雪晴",
+      role: id === "member-chen-zile" ? "编导" : "新媒体运营",
+      teamId: "group-jinke",
+    };
+    const raw = {
+      ...basic,
+      bio: "not reviewed",
+      experience: "not reviewed",
+      photo: { src: "/media/not-reviewed.webp" },
+      projectLinks: [{ caseId: "case-3", description: "not reviewed" }],
+    };
+    assert.deepEqual(publicMember(raw), basic);
+    assert.throws(() => assertMemberPublication(raw), /公开范围/);
+    assert.doesNotThrow(() => assertMemberPublication(basic));
+  }
+});

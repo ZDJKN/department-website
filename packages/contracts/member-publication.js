@@ -1,5 +1,10 @@
-// User-selected scope: name, role and primary group only (2026-11-04).
-const identityOnlyIds = new Set(["member-huang-meiyue"]);
+// 黄妹月: user-selected identity-only scope. New directory-only profiles have
+// verified names, roles and primary groups; detailed materials need review first.
+const identityOnlyIds = new Set([
+  "member-huang-meiyue",
+  "member-chen-zile",
+  "member-wu-xueqing",
+]);
 
 export function publicMember(member) {
   if (!identityOnlyIds.has(member.id)) return member;
