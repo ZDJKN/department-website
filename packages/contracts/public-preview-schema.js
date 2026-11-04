@@ -1,4 +1,5 @@
 import { validateContent } from "./content-schema.js";
+import { assertMemberPublication } from "./member-publication.js";
 
 export function validatePreviewSnapshot(content) {
   const normalized = JSON.parse(
@@ -20,4 +21,5 @@ export function validatePreviewSnapshot(content) {
   const result = validateContent(normalized);
   if (!result.ok)
     throw new Error("公开内容结构或引用无效：" + JSON.stringify(result.fields));
+  for (const member of content.members) assertMemberPublication(member);
 }

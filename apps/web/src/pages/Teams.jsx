@@ -157,7 +157,10 @@ function Person({ data, id }) {
     groups = memberTeamIds(member)
       .map((id) => data.teams.find((t) => t.id === id))
       .filter(Boolean),
-    projects = memberProjects(data, member);
+    projects = memberProjects(data, member),
+    hasProfileDetails = Boolean(
+      member.bio || member.experience || member.projectLinks?.length,
+    );
   return (
     <section className="wrap page-main">
       <a
@@ -187,21 +190,23 @@ function Person({ data, id }) {
               ))}
             </div>
           )}
-          <p className="person-bio">{member.bio}</p>
+          {member.bio && <p className="person-bio">{member.bio}</p>}
           {member.experience && (
             <div className="experience">
               <Label>专业经历</Label>
               <p>{member.experience}</p>
             </div>
           )}
-          <Source
-            source={member.source}
-            scope={
-              member.experience
-                ? "成员个人履历与部门案例分别记录；项目整体数据不等同于个人业绩。"
-                : "根据现有组织与岗位资料介绍，详细履历和作品将持续补充。"
-            }
-          />
+          {hasProfileDetails && (
+            <Source
+              source={member.source}
+              scope={
+                member.experience
+                  ? "成员个人履历与部门案例分别记录；项目整体数据不等同于个人业绩。"
+                  : "根据现有组织与岗位资料介绍，详细履历和作品将持续补充。"
+              }
+            />
+          )}
         </div>
       </div>
       {projects.personal.length > 0 && (
@@ -234,7 +239,7 @@ function Person({ data, id }) {
           </div>
         </section>
       )}
-      {projects.related.length > 0 && (
+      {hasProfileDetails && projects.related.length > 0 && (
         <section className="member-projects related-projects">
           <div className="section-head">
             <div>
@@ -265,16 +270,18 @@ function Person({ data, id }) {
           </div>
         </section>
       )}
-      {!projects.personal.length && !projects.related.length && (
-        <div className="member-project-empty">
-          <Label>PROJECTS</Label>
-          <p>相关项目作品正在整理。</p>
-          <a className="text-link" href={href("cases")}>
-            浏览部门案例
-            <Arrow diagonal />
-          </a>
-        </div>
-      )}
+      {hasProfileDetails &&
+        !projects.personal.length &&
+        !projects.related.length && (
+          <div className="member-project-empty">
+            <Label>PROJECTS</Label>
+            <p>相关项目作品正在整理。</p>
+            <a className="text-link" href={href("cases")}>
+              浏览部门案例
+              <Arrow diagonal />
+            </a>
+          </div>
+        )}
     </section>
   );
 }

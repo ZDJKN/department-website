@@ -21,7 +21,7 @@
     ],
     "contactText": "从一个具体的业务问题开始，一起把想法做成作品。",
     "about": "我们是小题旅行运营四部「点石成金」。一群做内容、懂运营、在现场的人。把创意带到品牌官号、社交平台、直播间和真实场景，让每一次表达回应具体的业务问题。",
-    "updatedAt": "2026-11-01",
+    "updatedAt": "2026-11-04",
     "directorId": "member-1"
   },
   "cases": [
@@ -1832,7 +1832,8 @@
         "member-27",
         "member-28",
         "member-29",
-        "member-30"
+        "member-30",
+        "member-huang-meiyue"
       ],
       "order": 101,
       "pending": false,
@@ -3500,6 +3501,18 @@
       "photo": null,
       "teamId": "team-6",
       "order": 127,
+      "additionalTeamIds": [],
+      "projectLinks": []
+    },
+    {
+      "id": "member-huang-meiyue",
+      "name": "黄妹月",
+      "role": "高级新媒体运营",
+      "teamId": "group-zhazha",
+      "order": 72,
+      "bio": "",
+      "experience": "",
+      "photo": null,
       "additionalTeamIds": [],
       "projectLinks": []
     }
