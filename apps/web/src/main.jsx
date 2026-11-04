@@ -9,6 +9,7 @@ import { Cases, CaseDetail } from "./pages/Cases.jsx";
 import { Teams, TeamDetail, Person } from "./pages/Teams.jsx";
 import { About, Contact } from "./pages/Static.jsx";
 import "./site.css";
+import "./editorial.css";
 function App() {
   const [route, setRoute] = useState(() =>
       location.hash.replace(/^#\/?/, "").replace(/\/$/, ""),

@@ -5,57 +5,97 @@ gsap.registerPlugin(ScrollTrigger);
 export function usePageMotion(key, ready) {
   useLayoutEffect(() => {
     if (!ready) return;
+    const scope = document.getElementById("main");
+    if (!scope) return;
+    const select = gsap.utils.selector(scope);
     const match = gsap.matchMedia();
     match.add("(prefers-reduced-motion: no-preference)", () => {
-      const ctx = gsap.context(() => {
-        gsap.from("[data-title] .title-line > span", {
-          yPercent: 110,
-          rotate: 2,
-          duration: 1.05,
-          stagger: 0.12,
-          ease: "power4.out",
-          clearProps: "transform",
-        });
-        gsap.from("[data-enter]", {
+      gsap.from(select("[data-title] .title-line > span"), {
+        yPercent: 105,
+        duration: 0.75,
+        stagger: 0.08,
+        ease: "power3.out",
+        clearProps: "transform",
+      });
+      gsap.from(select("[data-enter]"), {
+        y: 16,
+        opacity: 0,
+        duration: 0.65,
+        stagger: 0.055,
+        ease: "power3.out",
+        clearProps: "transform,opacity",
+      });
+      select("[data-reveal]").forEach((el) =>
+        gsap.from(el, {
           y: 22,
           opacity: 0,
-          duration: 0.85,
-          delay: 0.15,
-          stagger: 0.1,
+          duration: 0.65,
           ease: "power3.out",
-          clearProps: "all",
-        });
-        gsap.utils.toArray("[data-reveal]").forEach((el) =>
-          gsap.from(el, {
-            y: 42,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 95%", once: true },
-            clearProps: "all",
-          }),
-        );
-        if (window.innerWidth > 760)
-          gsap.utils.toArray("[data-parallax]").forEach((el) =>
-            gsap.fromTo(
-              el,
-              { yPercent: -5 },
-              {
-                yPercent: 5,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: el.parentElement,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 1,
-                },
-              },
-            ),
-          );
-      });
-      return () => ctx.revert();
+          scrollTrigger: {
+            trigger: el,
+            start: "top 96%",
+            once: true,
+            invalidateOnRefresh: true,
+          },
+          clearProps: "transform,opacity",
+        }),
+      );
     });
-    return () => match.revert();
+    match.add(
+      {
+        motion: "(prefers-reduced-motion: no-preference)",
+        desktop: "(min-width: 1024px)",
+      },
+      ({ conditions }) => {
+        if (!conditions.motion || !conditions.desktop) return;
+        select("[data-parallax]").forEach((el) =>
+          gsap.fromTo(
+            el,
+            { yPercent: -2, scale: 1.05 },
+            {
+              yPercent: 2,
+              scale: 1.05,
+              ease: "none",
+              scrollTrigger: {
+                trigger: el.parentElement,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.5,
+                invalidateOnRefresh: true,
+              },
+            },
+          ),
+        );
+      },
+    );
+
+    let frame;
+    let disposed = false;
+    const queueRefresh = () => {
+      if (disposed) return;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(refreshPageMotion);
+    };
+    const resize = new ResizeObserver(queueRefresh);
+    resize.observe(scope);
+    scope.addEventListener("load", queueRefresh, true);
+    scope.addEventListener("error", queueRefresh, true);
+    scope.addEventListener("toggle", queueRefresh, true);
+    window.addEventListener("resize", queueRefresh, { passive: true });
+    document.fonts?.ready.then(() => {
+      if (!disposed) queueRefresh();
+    });
+    queueRefresh();
+    return () => {
+      disposed = true;
+      cancelAnimationFrame(frame);
+      resize.disconnect();
+      scope.removeEventListener("load", queueRefresh, true);
+      scope.removeEventListener("error", queueRefresh, true);
+      scope.removeEventListener("toggle", queueRefresh, true);
+      window.removeEventListener("resize", queueRefresh);
+      match.revert();
+    };
   }, [key, ready]);
 }
 
