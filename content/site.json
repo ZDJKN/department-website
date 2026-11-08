@@ -21,7 +21,7 @@
     ],
     "contactText": "从一个具体的业务问题开始，一起把想法做成作品。",
     "about": "我们是小题旅行运营四部「点石成金」。一群做内容、懂运营、在现场的人。把创意带到品牌官号、社交平台、直播间和真实场景，让每一次表达回应具体的业务问题。",
-    "updatedAt": "2026-11-04",
+    "updatedAt": "2026-11-08",
     "directorId": "member-1"
   },
   "cases": [
@@ -1741,10 +1741,10 @@
     {
       "id": "team-4",
       "name": "什么都成组",
-      "lead": "资料待补",
+      "lead": "成都团队",
       "type": "内容运营",
-      "summary": "团队介绍与项目案例整理中。",
-      "description": "什么都成组的团队介绍、代表项目与作品资料，将在补充后更新。",
+      "summary": "以内容运营、短视频编导与后期剪辑为核心，支持内容从策划到交付。",
+      "description": "什么都成组由都别下班和成都中台组组成。团队分工覆盖内容策划、账号运营、短视频编导与后期制作。",
       "memberIds": [],
       "order": 3,
       "pending": true
@@ -2061,8 +2061,8 @@
       "name": "都别下班",
       "lead": "项目协作",
       "type": "小组 / 业务单元",
-      "summary": "火山引擎、抖音来客与放我家项目协作。",
-      "description": "火山引擎、抖音来客与放我家项目协作。",
+      "summary": "内容策划、短视频编导与新媒体运营。",
+      "description": "都别下班小组负责选题策划、脚本创作与内容执行，协同推进短视频项目交付。",
       "memberIds": [
         "member-org-14",
         "member-org-15",
@@ -2074,29 +2074,23 @@
       "order": 113,
       "pending": false,
       "parentId": "team-4",
-      "caseIds": [
-        "case-12"
-      ]
+      "caseIds": []
     },
     {
       "id": "group-chengdu",
       "name": "成都中台组",
       "lead": "团队协作",
       "type": "小组 / 业务单元",
-      "summary": "内容运营、剪辑与项目协同。",
-      "description": "内容运营、剪辑与项目协同。",
+      "summary": "新媒体运营与后期剪辑。",
+      "description": "成都中台组由新媒体运营与后期剪辑成员组成，为内容制作与交付提供支持。",
       "memberIds": [
         "member-org-20",
-        "member-org-21",
-        "member-org-22",
         "member-org-23"
       ],
       "order": 114,
       "pending": false,
       "parentId": "team-4",
-      "caseIds": [
-        "case-12"
-      ]
+      "caseIds": []
     },
     {
       "id": "group-edit",
@@ -3353,7 +3347,7 @@
     {
       "id": "member-org-14",
       "name": "康宁",
-      "role": "项目协作",
+      "role": "运营",
       "bio": "参与火山引擎相关项目协作。",
       "experience": "",
       "photo": null,
@@ -3365,7 +3359,7 @@
     {
       "id": "member-org-15",
       "name": "唐冬梅",
-      "role": "项目协作",
+      "role": "编导",
       "bio": "参与火山引擎相关项目协作。",
       "experience": "",
       "photo": null,
@@ -3377,7 +3371,7 @@
     {
       "id": "member-org-16",
       "name": "胡茜茜",
-      "role": "项目协作",
+      "role": "新媒体运营",
       "bio": "参与火山引擎、放我家相关项目协作。",
       "experience": "",
       "photo": null,
@@ -3389,7 +3383,7 @@
     {
       "id": "member-org-17",
       "name": "贾思琪",
-      "role": "项目协作",
+      "role": "新媒体运营",
       "bio": "参与抖音来客相关项目协作。",
       "experience": "",
       "photo": null,
@@ -3400,8 +3394,8 @@
     },
     {
       "id": "member-org-18",
-      "name": "康煜奇",
-      "role": "项目协作",
+      "name": "康煜莘",
+      "role": "编导",
       "bio": "参与抖音来客相关项目协作。",
       "experience": "",
       "photo": null,
@@ -3413,7 +3407,7 @@
     {
       "id": "member-org-19",
       "name": "朱瑛洁",
-      "role": "项目协作",
+      "role": "编导",
       "bio": "参与放我家相关项目协作。",
       "experience": "",
       "photo": null,
@@ -3435,34 +3429,10 @@
       "projectLinks": []
     },
     {
-      "id": "member-org-21",
-      "name": "李沂霖",
-      "role": "运营主管",
-      "bio": "5年品牌营销与新媒体从业经历",
-      "experience": "1.新媒体内容营销与投放操盘经验，完整跑通「内容策略—达人内容落地—媒介资源采买—投放优化—结案复盘」链路，擅长节奏把控、物料与内容质控，以及数据转化闭环。\n2.服务过快消、美妆、3C/奢侈品等多行业客户，能快速理解不同品类的生意逻辑与用户决策路径，制定与之匹配的平台内容与投放方案。\n3.服务过百事可乐、欧莱雅集团、花西子、王者荣耀、高露洁、TCL等知名品牌；能精准理解品牌诉求并推动项目高质量落地。\n4.结果导向清晰：多次实现ROI超目标、交付优于KPI；沉淀平台趋势判断与流量玩法方法论，可复用于新品牌冷启动与团队内部复用。",
-      "photo": null,
-      "teamId": "group-chengdu",
-      "order": 120,
-      "additionalTeamIds": [],
-      "projectLinks": []
-    },
-    {
-      "id": "member-org-22",
-      "name": "赵怡",
-      "role": "高级新媒体运营",
-      "bio": "3.5年新媒体账号运营",
-      "experience": "核心能力：内容策划|短视频内容爆款|小红书运营|生意转化\n1.内容策划与矩阵账号运营：负责全平台6个社交媒体账号（抖音、小红书、微信视频号）的内容策划与执行。一年内新增粉丝51w＋，总曝光8亿＋，产出内容2000＋篇，爆款200＋篇；\n2.短视频变现：抖音平台打造百万点赞视频6个，上万点赞视频73个，短视频贡献成交额60w＋，引流直播间转化1780w＋；\n3.活动策划：深度参与Toyheart北京展会活动策划，独立负责前期策划、宣发、现场执行等环节，活动期间销售额6w＋；\n4.市场推广：执行奔驰、宝马等异业合作项目，实现客户引流1000＋；独立策划并执行七夕节活动，覆盖人次500＋；参与6场大型品牌会（累计3000＋人次）负责现场执行。",
-      "photo": null,
-      "teamId": "group-chengdu",
-      "order": 121,
-      "additionalTeamIds": [],
-      "projectLinks": []
-    },
-    {
       "id": "member-org-23",
       "name": "冷垚林",
-      "role": "内容协作",
-      "bio": "内容协作，参与成都中台组的业务协作。",
+      "role": "新媒体运营",
+      "bio": "",
       "experience": "",
       "photo": null,
       "teamId": "group-chengdu",
