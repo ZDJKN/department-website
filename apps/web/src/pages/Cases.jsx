@@ -1,14 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
-import {
-  Arrow,
-  href,
-  pad,
-  Photo,
-  Label,
-  Title,
-  NotFound,
-} from "../components/ui.jsx";
-import { CaseCard, CaseVisual, Source } from "../components/work.jsx";
+import { Arrow, href, pad, Label, Title, NotFound } from "../components/ui.jsx";
+import { CaseCard } from "../components/work.jsx";
+import { CasePresentation } from "../components/CasePresentation.jsx";
 import {
   createCaseIndex,
   findCases,
@@ -201,90 +194,28 @@ function CaseDetail({ data, id }) {
   const next = data.cases[(data.cases.indexOf(c) + 1) % data.cases.length];
   return (
     <>
-      <section className="wrap detail-head">
+      <section className="wrap detail-head presentation-detail-head">
         <a className="back-link" href={href("cases")}>
           ← 全部项目
         </a>
         <div className="detail-meta">
           <Label>{c.category}</Label>
           <span>{c.year || "项目记录"}</span>
+          {team && (
+            <a
+              className="presentation-team-link"
+              href={href("team/" + team.id)}
+            >
+              {team.name} <Arrow diagonal />
+            </a>
+          )}
         </div>
         <Title lines={[c.client, c.name]} />
         <p className="detail-summary" data-enter>
           {c.summary}
         </p>
       </section>
-      <section className="wrap" data-enter>
-        <CaseVisual item={c} hero />
-      </section>
-      <section className="wrap case-story">
-        <div className="story-side">
-          <span className="small-label">PROJECT OVERVIEW</span>
-          <h2>
-            从问题出发，
-            <br />
-            把事情做好。
-          </h2>
-          {team && (
-            <a href={href("team/" + team.id)}>
-              {team.name}
-              <Arrow diagonal />
-            </a>
-          )}
-        </div>
-        <div className="story-content">
-          <div data-reveal>
-            <Label>01 / 项目背景</Label>
-            <p className="story-lead">{c.background}</p>
-          </div>
-          <div className="story-actions" data-reveal>
-            <Label>02 / 我们做了什么</Label>
-            {c.services.map((s, i) => (
-              <div className="action-item" key={i}>
-                <span>{pad(i + 1)}</span>
-                <p>{s}</p>
-              </div>
-            ))}
-          </div>
-          {c.results?.length > 0 && (
-            <div data-reveal>
-              <Label>03 / 项目表现</Label>
-              <div className="result-grid">
-                {c.results.map(([value, label]) => (
-                  <div key={label}>
-                    <strong>{value}</strong>
-                    <span>{label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-          <Source source={c.source} scope={c.scope} />
-        </div>
-      </section>
-      {c.gallery?.filter((im) => im.src !== c.cover?.src).length > 0 && (
-        <section className="wrap project-gallery">
-          <Label>PROJECT GALLERY / 项目画面</Label>
-          <div className="gallery-grid">
-            {c.gallery
-              .filter((im) => im.src !== c.cover?.src)
-              .map((image, i) => (
-                <figure key={image.src} data-reveal>
-                  <div>
-                    <Photo
-                      image={image}
-                      style={{ objectFit: image.fit || "contain" }}
-                    />
-                  </div>
-                  <figcaption>
-                    {image.caption || image.alt}
-                    <span>{pad(i + 1)}</span>
-                  </figcaption>
-                </figure>
-              ))}
-          </div>
-        </section>
-      )}
+      <CasePresentation key={c.id} item={c} />
       <section className="next-project">
         <a className="wrap" href={href("case/" + next.id)}>
           <span>

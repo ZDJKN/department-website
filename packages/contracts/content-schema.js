@@ -95,6 +95,7 @@ const schema = {
         scope: string,
         cover: image,
         gallery: array(image),
+        slides: array(image),
         teamId: id,
         year: string,
         accent: { type: "string", pattern: "^#[a-fA-F0-9]{6}$" },
