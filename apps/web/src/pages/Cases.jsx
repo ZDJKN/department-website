@@ -49,17 +49,13 @@ function Cases({ data, hash }) {
     }
   }
   return (
-    <section className="wrap page-main">
-      <div className="page-heading">
-        <Label>OUR WORK / 项目案例</Label>
-        <div className="page-heading-row">
-          <Title lines={["把想法，", "做成看得见的作品。"]} />
-          <p data-enter>
-            从内容到现场，
-            <br />
-            每一个项目都是一次共同创造。
-          </p>
+    <section className="wrap page-main case-collection">
+      <div className="case-collection-heading">
+        <div>
+          <Label>PROJECT INDEX</Label>
+          <Title lines={["项目案例"]} />
         </div>
+        <p data-enter>按品牌、团队或内容查找，点击封面查看 PPT 原页。</p>
       </div>
       <div className="case-discovery" role="search" aria-label="查找项目案例">
         <div className="case-search-row">
@@ -79,6 +75,7 @@ function Cases({ data, hash }) {
               <input
                 name="case-search"
                 type="search"
+                list="case-keyword-suggestions"
                 autoComplete="off"
                 maxLength={200}
                 value={filters.q}
@@ -86,6 +83,11 @@ function Cases({ data, hash }) {
                 placeholder="品牌、内容关键词或成员姓名…"
               />
             </div>
+            <datalist id="case-keyword-suggestions">
+              {["海报", "故事", "短视频", "直播", "数字人"].map((keyword) => (
+                <option key={keyword} value={keyword} />
+              ))}
+            </datalist>
           </label>
           <label className="case-team-filter">
             <span>按团队与小组查找</span>
@@ -118,19 +120,6 @@ function Cases({ data, hash }) {
               ))}
             </select>
           </label>
-        </div>
-        <div className="case-keywords" aria-label="常用内容关键词">
-          <span>试试找</span>
-          {["海报", "故事", "短视频", "直播", "数字人"].map((q) => (
-            <button
-              key={q}
-              aria-pressed={filters.q === q}
-              onClick={() => update({ q })}
-            >
-              {q}
-              <Arrow diagonal />
-            </button>
-          ))}
         </div>
         <div className="filter-tabs case-category-tabs" aria-label="案例分类">
           {["", ...categories].map((category) => (
@@ -166,9 +155,15 @@ function Cases({ data, hash }) {
       <p className="case-copy-status" role="status">
         {copyStatus}
       </p>
-      <div className="case-library">
+      <div className="case-library case-collection-grid">
         {list.map((c, i) => (
-          <CaseCard key={c.id} item={c} index={i} reveal={false} />
+          <CaseCard
+            key={c.id}
+            item={c}
+            index={i}
+            reveal={false}
+            useSlideCover
+          />
         ))}
       </div>
       {!list.length && (

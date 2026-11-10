@@ -153,25 +153,30 @@ function CasePresentation({ item }) {
           >
             {pad(index + 1)} <span>/</span> {pad(pages.length)}
           </span>
-          <button
-            type="button"
-            className="presentation-prev"
-            aria-label="上一页"
-            aria-disabled={index === 0}
-            aria-controls={panelId}
-            onClick={() => changePage(index - 1)}
-          >
-            <Arrow />
-          </button>
-          <button
-            type="button"
-            aria-label="下一页"
-            aria-disabled={index === pages.length - 1}
-            aria-controls={panelId}
-            onClick={() => changePage(index + 1)}
-          >
-            <Arrow />
-          </button>
+          {pages.length > 1 && (
+            <>
+              <button
+                type="button"
+                className="presentation-prev"
+                aria-label="上一页"
+                aria-disabled={index === 0}
+                aria-controls={panelId}
+                onClick={() => changePage(index - 1)}
+              >
+                <Arrow />
+              </button>
+              <button
+                type="button"
+                className="presentation-next"
+                aria-label="下一页"
+                aria-disabled={index === pages.length - 1}
+                aria-controls={panelId}
+                onClick={() => changePage(index + 1)}
+              >
+                <Arrow />
+              </button>
+            </>
+          )}
         </div>
       </div>
       {pages.length > 1 && (

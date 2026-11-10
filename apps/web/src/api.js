@@ -4,7 +4,7 @@ export async function loadContent(preview = false) {
   if (isStaticPreview) {
     const response = await fetch(
       new URL("content/site.json", document.baseURI),
-      { credentials: "omit" },
+      { credentials: "omit", cache: "no-cache" },
     );
     if (!response.ok) throw new Error("预览内容暂时无法加载。");
     return response.json();

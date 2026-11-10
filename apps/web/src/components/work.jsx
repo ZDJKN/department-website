@@ -53,7 +53,14 @@ function CaseVisual({ item, hero = false, editorial = false }) {
   );
 }
 
-function CaseCard({ item, index, featured = false, reveal = true }) {
+function CaseCard({
+  item,
+  index,
+  featured = false,
+  reveal = true,
+  useSlideCover = false,
+}) {
+  const slideCover = item.slides?.[0] || item.cover;
   return (
     <article
       className={"case-card " + (featured ? "featured-card" : "")}
@@ -64,7 +71,22 @@ function CaseCard({ item, index, featured = false, reveal = true }) {
         className="case-link"
         aria-label={"查看" + item.client + "：" + item.name}
       >
-        <CaseVisual item={item} editorial={featured && index === 0} />
+        {useSlideCover ? (
+          <div className="case-deck-cover">
+            {slideCover ? (
+              <Photo
+                image={slideCover}
+                style={{ objectFit: "contain" }}
+                loading={index < 3 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : undefined}
+              />
+            ) : (
+              <span>封面资料待补</span>
+            )}
+          </div>
+        ) : (
+          <CaseVisual item={item} editorial={featured && index === 0} />
+        )}
         <div className="case-caption">
           <div className="case-caption-main">
             <div className="case-byline">

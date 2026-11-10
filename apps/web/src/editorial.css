@@ -643,12 +643,6 @@ button {
 .case-query input {
   font-size: 18px;
 }
-.case-keywords button {
-  background: white;
-  border-color: var(--line);
-  color: var(--ink);
-  min-height: 40px;
-}
 .case-team-filter select {
   min-height: 48px;
 }
