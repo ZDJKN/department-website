@@ -1,9 +1,11 @@
 import React from "react";
-import { Arrow, href, Photo, Label, Title } from "../components/ui.jsx";
+import { Arrow, href, pad, Photo, Label, Title } from "../components/ui.jsx";
 import { CaseCard } from "../components/work.jsx";
 import { rootTeams } from "../../../../packages/contracts/organization.js";
 import { TeamExplorer } from "../components/TeamExplorer.jsx";
 import { Capabilities } from "../components/capabilities.jsx";
+import "../home-studio.css";
+
 function Home({ data }) {
   const { site, cases, teams } = data;
   const featured = site.featuredIds
@@ -14,108 +16,67 @@ function Home({ data }) {
     : "cases";
   return (
     <>
-      <section className="hero-editorial wrap">
-        <div className="studio-eyebrow" data-enter>
-          <span>
-            <i aria-hidden="true" /> CONTENT. PEOPLE. POSSIBILITIES.
-          </span>
-          <span>{site.eyebrow}</span>
-        </div>
-        <div className="hero-composition">
-          <div className="hero-copy">
-            <p className="hero-edition" data-enter>
-              DIANSHI STUDIO — 创意与执行
-            </p>
-            <Title lines={site.title.split("\n")} />
-            <p className="hero-description" data-enter>
-              {site.description}
-            </p>
-            <div className="hero-actions" data-enter>
-              <a className="solid-link" href={href("cases")}>
-                探索我们的作品 <Arrow diagonal />
-              </a>
-              <a className="quiet-link" href={href("teams")}>
-                认识这群人 <Arrow />
-              </a>
-            </div>
-          </div>
-          <div className="hero-feature" data-enter>
-            <div className="hero-frame-label">
-              <span>IN THE MAKING</span>
-              <span>01 / 现场</span>
-            </div>
-            <a
-              className="hero-feature-link"
-              href={href(heroPath)}
-              aria-label={"查看" + site.heroCaption + "项目"}
-            >
-              <div className="hero-media">
-                <Photo
-                  image={site.heroImage}
-                  loading="eager"
-                  fetchPriority="high"
-                  width={site.heroImage?.width || 1800}
-                  height={site.heroImage?.height || 1200}
-                />
-              </div>
-              <div className="hero-feature-caption">
-                <div>
-                  <small>{site.heroCaption}</small>
-                  <p>创意，发生在现场。</p>
-                </div>
-                <Arrow diagonal />
-              </div>
+      <section className="studio-masthead wrap">
+        <div className="studio-masthead-copy">
+          <p className="studio-masthead-label" data-enter>
+            <span>DIANSHI STUDIO</span>
+            {site.eyebrow}
+          </p>
+          <Title lines={site.title.split("\n")} />
+          <p className="studio-masthead-description" data-enter>
+            {site.description}
+          </p>
+          <div className="studio-masthead-actions" data-enter>
+            <a href={href("cases")}>
+              浏览项目 <Arrow diagonal />
+            </a>
+            <a href={href("teams")}>
+              认识团队 <Arrow />
             </a>
           </div>
         </div>
-        <div className="hero-colophon">
-          <span>把想法做成作品，把内容带到人群中。</span>
-          <button
-            type="button"
-            onClick={(event) => {
-              event.preventDefault();
-              const section = document.getElementById("selected-work");
-              section?.focus({ preventScroll: true });
-              section?.scrollIntoView({
-                behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-                  ? "instant"
-                  : "smooth",
-              });
-            }}
-          >
-            向下探索 <span aria-hidden="true">↓</span>
-          </button>
-        </div>
-        <div className="brand-strip" aria-label="合作项目涉及的品牌">
-          <span>
-            与不同品牌
-            <br />
-            一起创造
-          </span>
-          <div>1688</div>
-          <div>支付宝</div>
-          <div>美团</div>
-          <div>快手</div>
-          <div>飞书</div>
-          <div>小红书</div>
+        <a className="studio-field-note" href={href(heroPath)} data-enter>
+          <div className="studio-field-photo">
+            <Photo
+              image={site.heroImage}
+              loading="eager"
+              fetchPriority="high"
+              width={site.heroImage?.width || 1800}
+              height={site.heroImage?.height || 1200}
+            />
+          </div>
+          <div className="studio-field-caption">
+            <span>{site.heroCaption}</span>
+            <span className="studio-field-action">
+              看项目 <Arrow diagonal />
+            </span>
+          </div>
+        </a>
+        <div className="studio-brand-index" aria-label="合作项目涉及的品牌">
+          <span>项目涉及品牌</span>
+          <ul>
+            {["1688", "支付宝", "美团", "快手", "飞书", "小红书"].map(
+              (brand) => (
+                <li key={brand}>{brand}</li>
+              ),
+            )}
+          </ul>
         </div>
       </section>
       <section
         id="selected-work"
         tabIndex={-1}
-        className="work-section wrap section-space"
+        className="work-section studio-selected wrap section-space"
       >
         <div className="section-head" data-reveal>
           <div>
             <Label>01 / SELECTED WORK</Label>
             <h2>
-              把想法，
-              <br />
-              做成看得见的作品<span className="blue">。</span>
+              精选项目<span className="blue">。</span>
             </h2>
           </div>
           <a className="pill-link" href={href("cases")}>
-            全部项目<sup>{cases.length}</sup>
+            查看全部 {pad(cases.length)} 个项目
             <Arrow diagonal />
           </a>
         </div>

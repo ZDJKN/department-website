@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Arrow, href, pad, Label, Title, NotFound } from "../components/ui.jsx";
 import { CaseCard } from "../components/work.jsx";
-import { CasePresentation } from "../components/CasePresentation.jsx";
+import { CaseOnePage } from "../components/CaseOnePage.jsx";
 import {
   createCaseIndex,
   findCases,
@@ -15,9 +15,7 @@ import {
 import "../case-discovery.css";
 
 function Cases({ data, hash }) {
-  const [filters, setFilters] = useState(() =>
-    readCaseFilters(location.hash, data),
-  );
+  const [filters, setFilters] = useState(() => readCaseFilters(hash, data));
   const [copyStatus, setCopyStatus] = useState("");
   const index = useMemo(() => createCaseIndex(data), [data]);
   useEffect(() => {
@@ -52,15 +50,23 @@ function Cases({ data, hash }) {
     <section className="wrap page-main case-collection">
       <div className="case-collection-heading">
         <div>
-          <Label>PROJECT INDEX</Label>
+          <Label>DIANSHI STUDIO / WORK INDEX</Label>
           <Title lines={["项目案例"]} />
+          <p data-enter>从策略到执行，翻阅我们的项目。</p>
         </div>
-        <p data-enter>按品牌、团队或内容查找，点击封面查看 PPT 原页。</p>
+        <div className="case-collection-tally" data-enter>
+          <strong>{pad(data.cases.length)}</strong>
+          <span>
+            个项目
+            <br />
+            <small>PROJECTS</small>
+          </span>
+        </div>
       </div>
       <div className="case-discovery" role="search" aria-label="查找项目案例">
         <div className="case-search-row">
           <label className="case-query">
-            <span>找一个合适的案例</span>
+            <span>搜索项目</span>
             <div>
               <svg
                 viewBox="0 0 24 24"
@@ -90,7 +96,7 @@ function Cases({ data, hash }) {
             </datalist>
           </label>
           <label className="case-team-filter">
-            <span>按团队与小组查找</span>
+            <span>团队与小组</span>
             <select
               name="case-team"
               value={filters.team}
@@ -162,7 +168,7 @@ function Cases({ data, hash }) {
             item={c}
             index={i}
             reveal={false}
-            useSlideCover
+            onePagePreview
           />
         ))}
       </div>
@@ -189,28 +195,20 @@ function CaseDetail({ data, id }) {
   const next = data.cases[(data.cases.indexOf(c) + 1) % data.cases.length];
   return (
     <>
-      <section className="wrap detail-head presentation-detail-head">
+      <nav className="wrap case-detail-nav" aria-label="项目导航">
         <a className="back-link" href={href("cases")}>
           ← 全部项目
         </a>
-        <div className="detail-meta">
-          <Label>{c.category}</Label>
-          <span>{c.year || "项目记录"}</span>
-          {team && (
-            <a
-              className="presentation-team-link"
-              href={href("team/" + team.id)}
-            >
-              {team.name} <Arrow diagonal />
-            </a>
-          )}
-        </div>
-        <Title lines={[c.client, c.name]} />
-        <p className="detail-summary" data-enter>
-          {c.summary}
-        </p>
-      </section>
-      <CasePresentation key={c.id} item={c} />
+        {team && (
+          <a href={href("team/" + team.id)}>
+            {team.name} <Arrow diagonal />
+          </a>
+        )}
+      </nav>
+      <h1 className="case-detail-title">
+        {c.client} · {c.name}
+      </h1>
+      <CaseOnePage key={c.id} item={c} team={team} />
       <section className="next-project">
         <a className="wrap" href={href("case/" + next.id)}>
           <span>

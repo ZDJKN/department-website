@@ -1,5 +1,6 @@
 import React from "react";
 import { Arrow, href, pad, Photo } from "./ui.jsx";
+import { CaseOnePage } from "./CaseOnePage.jsx";
 function CaseVisual({ item, hero = false, editorial = false }) {
   const alternate =
     editorial && item.cover?.fit === "cover"
@@ -58,9 +59,8 @@ function CaseCard({
   index,
   featured = false,
   reveal = true,
-  useSlideCover = false,
+  onePagePreview = false,
 }) {
-  const slideCover = item.slides?.[0] || item.cover;
   return (
     <article
       className={"case-card " + (featured ? "featured-card" : "")}
@@ -71,18 +71,9 @@ function CaseCard({
         className="case-link"
         aria-label={"查看" + item.client + "：" + item.name}
       >
-        {useSlideCover ? (
-          <div className="case-deck-cover">
-            {slideCover ? (
-              <Photo
-                image={slideCover}
-                style={{ objectFit: "contain" }}
-                loading={index < 3 ? "eager" : "lazy"}
-                fetchPriority={index === 0 ? "high" : undefined}
-              />
-            ) : (
-              <span>封面资料待补</span>
-            )}
+        {onePagePreview ? (
+          <div className="case-deck-cover" aria-hidden="true">
+            <CaseOnePage item={item} thumbnail />
           </div>
         ) : (
           <CaseVisual item={item} editorial={featured && index === 0} />

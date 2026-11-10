@@ -78,17 +78,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 0,
-      "accent": "#ff6b14",
-      "slides": [
-        {
-          "src": "media/case-cover-1-p020.webp",
-          "alt": "1688 · 新媒体矩阵获客与渠道商赋能 · PPT 封面",
-          "caption": "原 PPT 第 20 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#ff6b14"
     },
     {
       "id": "case-2",
@@ -116,44 +106,36 @@
           "阶段线索增长"
         ]
       ],
-      "scope": "第7页项目阶段汇总另列内容输出60000多条、直播1000多场、意向咨询23万多次、营收7000万以上。咨询、线索与营收为不同指标。",
+      "scope": "总播放量、参与销售人数与阶段线索增长分别统计。",
       "cover": {
-        "src": "media/5b58d243d6e1.webp",
-        "alt": "阿里巴巴国际站 · 项目作品",
+        "src": "media/case-sales-star-mark.webp",
+        "alt": "阿里巴巴国际站销售星标志",
+        "caption": "销售星",
         "fit": "contain",
-        "width": 269,
-        "height": 518
+        "width": 374,
+        "height": 299
       },
       "gallery": [
         {
-          "src": "media/5b58d243d6e1.webp",
-          "alt": "阿里巴巴国际站 · 项目作品",
+          "src": "media/case-sales-star-mark.webp",
+          "alt": "阿里巴巴国际站销售星标志",
+          "caption": "销售星",
           "fit": "contain",
-          "width": 269,
-          "height": 518
+          "width": 374,
+          "height": 299
         },
         {
-          "src": "media/ca882cc33de5.webp",
-          "alt": "阿里巴巴国际站 · 项目作品",
+          "src": "media/case-sales-star-works.webp",
+          "alt": "销售星项目短视频与访谈画面",
           "fit": "contain",
-          "width": 1794,
-          "height": 1158
+          "width": 298,
+          "height": 120
         }
       ],
       "teamId": "team-2",
       "year": "项目阶段记录",
       "order": 1,
-      "accent": "#15183d",
-      "slides": [
-        {
-          "src": "media/case-cover-2-p005.webp",
-          "alt": "阿里巴巴国际站 · “销售星”B2B 新媒体矩阵 · PPT 封面",
-          "caption": "原 PPT 第 5 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#15183d"
     },
     {
       "id": "case-3",
@@ -201,17 +183,7 @@
       "teamId": "team-2",
       "year": "项目阶段记录",
       "order": 2,
-      "accent": "#0456cc",
-      "slides": [
-        {
-          "src": "media/case-cover-3-p010.webp",
-          "alt": "万里汇 · 跨境 B2B 支付矩阵获客 · PPT 封面",
-          "caption": "原 PPT 第 10 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#0456cc"
     },
     {
       "id": "case-4",
@@ -273,17 +245,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 3,
-      "accent": "#fe6b2c",
-      "slides": [
-        {
-          "src": "media/case-cover-4-p029.webp",
-          "alt": "余额宝 · “余有有”小红书官号与蓝V生态 · PPT 封面",
-          "caption": "原 PPT 第 29 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#fe6b2c"
     },
     {
       "id": "case-5",
@@ -345,17 +307,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 4,
-      "accent": "#ffc52e",
-      "slides": [
-        {
-          "src": "media/case-cover-5-p053.webp",
-          "alt": "美团保洁 · 小红书 KOC 种草与搜索占位 · PPT 封面",
-          "caption": "原 PPT 第 53 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#ffc52e"
     },
     {
       "id": "case-6",
@@ -410,17 +362,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 5,
-      "accent": "#e56783",
-      "slides": [
-        {
-          "src": "media/case-cover-6-p063.webp",
-          "alt": "美团医美 · 小红书 KOS 专业内容矩阵 · PPT 封面",
-          "caption": "原 PPT 第 63 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#e56783"
     },
     {
       "id": "case-7",
@@ -475,17 +417,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 6,
-      "accent": "#9eafc5",
-      "slides": [
-        {
-          "src": "media/case-cover-7-p045.webp",
-          "alt": "圆周旅迹 · 旅游工具 KOS 矩阵与效果投放 · PPT 封面",
-          "caption": "原 PPT 第 45 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#9eafc5"
     },
     {
       "id": "case-8",
@@ -547,17 +479,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 7,
-      "accent": "#fedc36",
-      "slides": [
-        {
-          "src": "media/case-cover-8-p041.webp",
-          "alt": "闲鱼 · 小红书 KOC 内容种草与回端 · PPT 封面",
-          "caption": "原 PPT 第 41 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#fedc36"
     },
     {
       "id": "case-9",
@@ -612,17 +534,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 8,
-      "accent": "#3b68d9",
-      "slides": [
-        {
-          "src": "media/case-cover-9-p062.webp",
-          "alt": "Blued · 小红书 KOC 原生内容与用户增长 · PPT 封面",
-          "caption": "原 PPT 第 62 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#3b68d9"
     },
     {
       "id": "case-10",
@@ -670,17 +582,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 9,
-      "accent": "#0065ff",
-      "slides": [
-        {
-          "src": "media/case-cover-10-p025.webp",
-          "alt": "钉钉 · 抖音与视频号品牌内容运营 · PPT 封面",
-          "caption": "原 PPT 第 25 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#0065ff"
     },
     {
       "id": "case-11",
@@ -735,17 +637,7 @@
       "teamId": "team-2",
       "year": "项目阶段记录",
       "order": 10,
-      "accent": "#ff6b14",
-      "slides": [
-        {
-          "src": "media/case-cover-11-p023.webp",
-          "alt": "快快网络 · 云安全企业官号与销售矩阵 · PPT 封面",
-          "caption": "原 PPT 第 23 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#ff6b14"
     },
     {
       "id": "case-12",
@@ -760,37 +652,36 @@
         "将痛点、经营逻辑与实操步骤结合，承接商家的咨询与行动。"
       ],
       "results": [],
-      "scope": "第17页正文列两个月品牌曝光2000万以上、触达商家300万以上、有效商家动作50万以上；同页图形另列27821万、3353万、1158万以上，口径未说明。本版保留服务过程，待确认后展示统一成果指标。",
+      "scope": "曝光、商家触达与商家动作的统计口径尚待统一，本页展示项目执行。",
       "cover": {
-        "src": "media/2873bb1c5655.webp",
-        "alt": "抖音来客 · 项目作品",
+        "src": "media/case-laike-mark.webp",
+        "alt": "抖音来客品牌标志",
+        "caption": "抖音来客",
         "fit": "contain",
-        "width": 1189,
-        "height": 565
+        "width": 494,
+        "height": 408
       },
       "gallery": [
         {
-          "src": "media/2873bb1c5655.webp",
-          "alt": "抖音来客 · 项目作品",
+          "src": "media/case-laike-mark.webp",
+          "alt": "抖音来客品牌标志",
+          "caption": "抖音来客",
           "fit": "contain",
-          "width": 1189,
-          "height": 565
+          "width": 494,
+          "height": 408
+        },
+        {
+          "src": "media/case-laike-works.webp",
+          "alt": "抖音来客官号发布作品",
+          "fit": "contain",
+          "width": 953,
+          "height": 256
         }
       ],
       "teamId": "team-2",
       "year": "项目阶段记录",
       "order": 11,
-      "accent": "#15183d",
-      "slides": [
-        {
-          "src": "media/case-cover-12-p017.webp",
-          "alt": "抖音来客 · 官方账号短视频与直播运营 · PPT 封面",
-          "caption": "原 PPT 第 17 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#15183d"
     },
     {
       "id": "case-13",
@@ -830,17 +721,7 @@
       "teamId": "team-2",
       "year": "项目阶段记录",
       "order": 12,
-      "accent": "#0456cc",
-      "slides": [
-        {
-          "src": "media/case-cover-13-p015.webp",
-          "alt": "瓜子二手车 · 渠道账号直播获客试点 · PPT 封面",
-          "caption": "原 PPT 第 15 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#0456cc"
     },
     {
       "id": "case-14",
@@ -870,20 +751,13 @@
       ],
       "scope": "第8页该案例另列转化订单32单以上、ROI 1:6.5。此处为直播陪跑案例口径，不与“销售星”矩阵总体结果相加。",
       "cover": {
-        "src": "media/ca882cc33de5.webp",
+        "src": "media/0e014768421b.webp",
         "alt": "阿里巴巴国际站 · 项目作品",
         "fit": "contain",
-        "width": 1794,
-        "height": 1158
+        "width": 1800,
+        "height": 615
       },
       "gallery": [
-        {
-          "src": "media/ca882cc33de5.webp",
-          "alt": "阿里巴巴国际站 · 项目作品",
-          "fit": "contain",
-          "width": 1794,
-          "height": 1158
-        },
         {
           "src": "media/0e014768421b.webp",
           "alt": "阿里巴巴国际站 · 项目作品",
@@ -895,17 +769,7 @@
       "teamId": "team-2",
       "year": "项目阶段记录",
       "order": 13,
-      "accent": "#fe6b2c",
-      "slides": [
-        {
-          "src": "media/case-cover-14-p008.webp",
-          "alt": "阿里巴巴国际站 · “销售星”直播陪跑 · PPT 封面",
-          "caption": "原 PPT 第 8 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#fe6b2c"
     },
     {
       "id": "case-15",
@@ -956,17 +820,7 @@
       "teamId": "team-3",
       "year": "项目阶段记录",
       "order": 14,
-      "accent": "#ffc52e",
-      "slides": [
-        {
-          "src": "media/case-cover-15-p009.webp",
-          "alt": "京东服务+ · 空调清洗直播培训与陪跑 · PPT 封面",
-          "caption": "原 PPT 第 9 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#ffc52e"
     },
     {
       "id": "case-16",
@@ -1021,17 +875,7 @@
       "teamId": "team-6",
       "year": "项目阶段记录",
       "order": 15,
-      "accent": "#e56783",
-      "slides": [
-        {
-          "src": "media/case-cover-16-p127.webp",
-          "alt": "美团酒旅 · 必住榜与618王牌囤货节 · PPT 封面",
-          "caption": "原 PPT 第 127 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#e56783"
     },
     {
       "id": "case-17",
@@ -1075,17 +919,7 @@
       "teamId": "team-6",
       "year": "项目阶段记录",
       "order": 16,
-      "accent": "#9eafc5",
-      "slides": [
-        {
-          "src": "media/case-cover-17-p133.webp",
-          "alt": "支付宝旅游 · 新业务直播间从0到1搭建 · PPT 封面",
-          "caption": "原 PPT 第 133 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#9eafc5"
     },
     {
       "id": "case-18",
@@ -1143,17 +977,7 @@
       "teamId": "team-6",
       "year": "项目阶段记录",
       "order": 17,
-      "accent": "#fedc36",
-      "slides": [
-        {
-          "src": "media/case-cover-18-p132.webp",
-          "alt": "美团外卖 × 肯德基 · 肯德基八周年直播大场 · PPT 封面",
-          "caption": "原 PPT 第 132 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#fedc36"
     },
     {
       "id": "case-19",
@@ -1197,17 +1021,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 18,
-      "accent": "#3b68d9",
-      "slides": [
-        {
-          "src": "media/case-cover-19-p034.webp",
-          "alt": "美团骑手 · 小红书官方账号内容运营 · PPT 封面",
-          "caption": "原 PPT 第 34 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#3b68d9"
     },
     {
       "id": "case-20",
@@ -1241,17 +1055,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 19,
-      "accent": "#0065ff",
-      "slides": [
-        {
-          "src": "media/case-cover-20-p038.webp",
-          "alt": "支付宝 · “我支道”官号内容运营 · PPT 封面",
-          "caption": "原 PPT 第 38 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#0065ff"
     },
     {
       "id": "case-21",
@@ -1275,36 +1079,11 @@
         ]
       ],
       "scope": "原材料第79页项目阶段记录；统计周期未标注，不代表当前实时人数。",
-      "cover": {
-        "src": "media/7e6bb77d88f6.webp",
-        "alt": "阿里妈妈 · 连接电商人的专业社群",
-        "fit": "contain",
-        "width": 520,
-        "height": 377
-      },
-      "gallery": [
-        {
-          "src": "media/7e6bb77d88f6.webp",
-          "alt": "阿里妈妈 · 连接电商人的专业社群",
-          "fit": "contain",
-          "width": 520,
-          "height": 377
-        }
-      ],
+      "gallery": [],
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 20,
-      "accent": "#ff6b14",
-      "slides": [
-        {
-          "src": "media/case-cover-21-p079.webp",
-          "alt": "阿里妈妈 · 连接电商人的专业社群 · PPT 封面",
-          "caption": "原 PPT 第 79 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#ff6b14"
     },
     {
       "id": "case-22",
@@ -1351,17 +1130,7 @@
       "teamId": "team-1",
       "year": "项目阶段记录",
       "order": 21,
-      "accent": "#15183d",
-      "slides": [
-        {
-          "src": "media/case-cover-22-p083.webp",
-          "alt": "小红书 · 重庆本地用户社群运营 · PPT 封面",
-          "caption": "原 PPT 第 83 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#15183d"
     },
     {
       "id": "case-23",
@@ -1411,17 +1180,7 @@
       "teamId": "team-5",
       "year": "项目阶段记录",
       "order": 22,
-      "accent": "#0456cc",
-      "slides": [
-        {
-          "src": "media/case-cover-23-p093.webp",
-          "alt": "阿芙 · 从内容实验到投放优化 · PPT 封面",
-          "caption": "原 PPT 第 93 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#0456cc"
     },
     {
       "id": "case-24",
@@ -1469,17 +1228,7 @@
       "teamId": "team-3",
       "year": "项目阶段记录",
       "order": 23,
-      "accent": "#fe6b2c",
-      "slides": [
-        {
-          "src": "media/case-cover-24-p101.webp",
-          "alt": "飞书 · 把复杂产品带进直播间 · PPT 封面",
-          "caption": "原 PPT 第 101 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#fe6b2c"
     },
     {
       "id": "case-25",
@@ -1520,17 +1269,7 @@
       "teamId": "team-3",
       "year": "项目阶段记录",
       "order": 24,
-      "accent": "#ffc52e",
-      "slides": [
-        {
-          "src": "media/case-cover-25-p103.webp",
-          "alt": "快手 · 马路实装秀 · 城市就是秀场 · PPT 封面",
-          "caption": "原 PPT 第 103 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#ffc52e"
     },
     {
       "id": "case-26",
@@ -1580,17 +1319,7 @@
       "teamId": "team-3",
       "year": "项目阶段记录",
       "order": 25,
-      "accent": "#e56783",
-      "slides": [
-        {
-          "src": "media/case-cover-26-p104.webp",
-          "alt": "快手 · 南通百人睡觉大赛 · PPT 封面",
-          "caption": "原 PPT 第 104 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#e56783"
     },
     {
       "id": "case-27",
@@ -1640,17 +1369,7 @@
       "teamId": "team-3",
       "year": "项目阶段记录",
       "order": 26,
-      "accent": "#9eafc5",
-      "slides": [
-        {
-          "src": "media/case-cover-27-p106.webp",
-          "alt": "快手 · 大连开海 · 把直播搬到渔港 · PPT 封面",
-          "caption": "原 PPT 第 106 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#9eafc5"
     },
     {
       "id": "case-28",
@@ -1700,17 +1419,7 @@
       "teamId": "team-3",
       "year": "项目阶段记录",
       "order": 27,
-      "accent": "#fedc36",
-      "slides": [
-        {
-          "src": "media/case-cover-28-p107.webp",
-          "alt": "麻六记 · 品牌专场直播与传播 · PPT 封面",
-          "caption": "原 PPT 第 107 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#fedc36"
     },
     {
       "id": "case-29",
@@ -1730,43 +1439,11 @@
         ]
       ],
       "scope": "第111页累计曝光口径，统计周期未标注。转化人数、搜索量在两个PPT中定义不一致，未采入。",
-      "cover": {
-        "src": "media/3c53a75081b4.webp",
-        "alt": "豆包 · PC端产品直播运营",
-        "fit": "contain",
-        "width": 318,
-        "height": 700
-      },
-      "gallery": [
-        {
-          "src": "media/3c53a75081b4.webp",
-          "alt": "豆包 · PC端产品直播运营",
-          "fit": "contain",
-          "width": 318,
-          "height": 700
-        },
-        {
-          "src": "media/8f050174b547.webp",
-          "alt": "豆包 · PC端产品直播运营",
-          "fit": "contain",
-          "width": 319,
-          "height": 700
-        }
-      ],
+      "gallery": [],
       "teamId": "team-3",
       "year": "项目阶段记录",
       "order": 28,
-      "accent": "#3b68d9",
-      "slides": [
-        {
-          "src": "media/case-cover-29-p111.webp",
-          "alt": "豆包 · PC端产品直播运营 · PPT 封面",
-          "caption": "原 PPT 第 111 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#3b68d9"
     },
     {
       "id": "case-30",
@@ -1807,17 +1484,7 @@
       "teamId": "team-6",
       "year": "项目阶段记录",
       "order": 29,
-      "accent": "#0065ff",
-      "slides": [
-        {
-          "src": "media/case-cover-30-p129.webp",
-          "alt": "美团酒旅 · 去目的地，讲目的地的故事 · PPT 封面",
-          "caption": "原 PPT 第 129 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#0065ff"
     },
     {
       "id": "case-31",
@@ -1858,17 +1525,7 @@
       "teamId": "team-6",
       "year": "项目阶段记录",
       "order": 30,
-      "accent": "#ff6b14",
-      "slides": [
-        {
-          "src": "media/case-cover-31-p130.webp",
-          "alt": "美团酒旅 · 境外目的地直播 · 吉隆坡 · PPT 封面",
-          "caption": "原 PPT 第 130 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#ff6b14"
     },
     {
       "id": "case-32",
@@ -1909,17 +1566,7 @@
       "teamId": "team-6",
       "year": "项目阶段记录",
       "order": 31,
-      "accent": "#15183d",
-      "slides": [
-        {
-          "src": "media/case-cover-32-p135.webp",
-          "alt": "淘宝秒杀 · 让店播更有年轻人的语言 · PPT 封面",
-          "caption": "原 PPT 第 135 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#15183d"
     },
     {
       "id": "case-33",
@@ -1953,17 +1600,7 @@
       "teamId": "team-6",
       "year": "项目阶段记录",
       "order": 32,
-      "accent": "#0456cc",
-      "slides": [
-        {
-          "src": "media/case-cover-33-p136.webp",
-          "alt": "伊利 × 故宫 · 用古风剧情打开新品直播 · PPT 封面",
-          "caption": "原 PPT 第 136 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#0456cc"
     },
     {
       "id": "case-34",
@@ -1997,17 +1634,7 @@
       "teamId": "team-6",
       "year": "项目阶段记录",
       "order": 33,
-      "accent": "#fe6b2c",
-      "slides": [
-        {
-          "src": "media/case-cover-34-p137.webp",
-          "alt": "淘宝秒杀 · 小缸团队专场内容协作 · PPT 封面",
-          "caption": "原 PPT 第 137 页（公开版）",
-          "fit": "contain",
-          "width": 1601,
-          "height": 900
-        }
-      ]
+      "accent": "#fe6b2c"
     }
   ],
   "teams": [
