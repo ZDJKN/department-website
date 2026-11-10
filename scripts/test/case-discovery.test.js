@@ -5,7 +5,7 @@ import {
   findCases,
   readCaseFilters,
   caseFilterHash,
-} from "../../apps/web/src/lib/case-discovery.js";
+} from "../../packages/contracts/case-discovery.js";
 const data = {
   site: {},
   teams: [

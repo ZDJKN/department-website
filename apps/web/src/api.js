@@ -2,11 +2,12 @@ export const isStaticPreview = import.meta.env.VITE_PUBLIC_PREVIEW === "true";
 
 export async function loadContent(preview = false) {
   if (isStaticPreview) {
-    const response = await fetch(
-      new URL("content/site.json", document.baseURI),
-      { credentials: "omit", cache: "no-cache" },
-    );
-    if (!response.ok) throw new Error("预览内容暂时无法加载。");
+    const url = new URL("content/site.json", document.baseURI);
+    const request = () =>
+      fetch(url, { credentials: "omit", cache: "no-cache" }).catch(() => null);
+    let response = await request();
+    if (!response || response.status >= 500) response = await request();
+    if (!response?.ok) throw new Error("预览内容暂时无法加载。");
     return response.json();
   }
   const response = await fetch(

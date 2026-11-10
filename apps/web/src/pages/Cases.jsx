@@ -7,7 +7,7 @@ import {
   findCases,
   readCaseFilters,
   caseFilterHash,
-} from "../lib/case-discovery.js";
+} from "../../../../packages/contracts/case-discovery.js";
 import {
   rootTeams,
   teamPath,

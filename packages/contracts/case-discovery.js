@@ -1,7 +1,4 @@
-import {
-  teamCases,
-  teamPath,
-} from "../../../../packages/contracts/organization.js";
+import { teamCases, teamPath } from "./organization.js";
 
 const normalize = (value) =>
   String(value || "")
