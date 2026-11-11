@@ -102,13 +102,14 @@
 .studio-field-note {
   min-width: 0;
   display: block;
+  margin: 0;
   background: var(--blue);
   color: #fff;
 }
 
 .studio-field-photo {
   position: relative;
-  aspect-ratio: 1.49;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   background: #e5ebfc;
 }
@@ -117,7 +118,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  transition: transform 450ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .studio-field-caption {
@@ -136,7 +136,45 @@
   display: inline-flex;
   flex: none;
   align-items: center;
+  min-height: 44px;
   gap: 7px;
+}
+
+.studio-photo-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px clamp(12px, 1.6vw, 23px) 8px;
+  border-top: 1px solid #ffffff40;
+}
+
+.studio-photo-selector button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  padding-inline: 8px;
+  border-bottom: 2px solid transparent;
+  color: #fff;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.studio-photo-selector button > span {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.studio-photo-selector button[aria-pressed="true"] {
+  border-bottom-color: #fff;
+  background: #ffffff18;
+  font-weight: 750;
+}
+
+.studio-field-note :is(a, button):focus-visible {
+  outline-color: #fff;
+  outline-offset: 2px;
 }
 
 .studio-brand-index {
@@ -183,17 +221,19 @@
   margin-top: 14px;
 }
 
+.studio-selected .work-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 64px) clamp(15px, 2.25vw, 31px);
+}
+
 .studio-selected .work-grid .case-card:nth-child(n) {
+  grid-column: auto;
   margin-top: 0;
 }
 
-.studio-selected .work-grid .case-card:nth-child(2n) {
-  margin-top: clamp(22px, 3vw, 56px);
-}
-
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .studio-field-note:hover img {
-    transform: scale(1.025);
+@media (max-width: 1060px) {
+  .studio-selected .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -206,16 +246,6 @@
   .studio-masthead h1 {
     font-size: clamp(42px, 8vw, 74px);
   }
-
-  .studio-field-photo {
-    aspect-ratio: 1.75;
-  }
-}
-
-@media (max-width: 760px) {
-  .studio-selected .work-grid .case-card:nth-child(2n) {
-    margin-top: 0;
-  }
 }
 
 @media (max-width: 640px) {
@@ -223,8 +253,8 @@
     font-size: clamp(34px, 10.4vw, 57px);
   }
 
-  .studio-field-photo {
-    aspect-ratio: 1.35;
+  .studio-selected .work-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .studio-brand-index {
@@ -242,8 +272,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .studio-masthead-actions a,
-  .studio-field-photo > img {
+  .studio-masthead-actions a {
     transition: none;
   }
 }

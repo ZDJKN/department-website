@@ -3,6 +3,13 @@
   container-type: inline-size;
 }
 
+.case-deck-cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #101a38;
+}
+
 .case-sheet-page {
   margin-bottom: clamp(48px, 7vw, 104px);
 }

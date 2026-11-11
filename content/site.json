@@ -5,12 +5,14 @@
     "title": "让好内容，\n真正发生。",
     "description": "从一个好想法，到一场被看见的行动。我们用内容、运营与制作，连接品牌和真实的人。",
     "heroImage": {
-      "src": "media/5e352b35-3752-4971-a2a3-f8ee6e3018f2.webp",
-      "alt": "快手马路实装秀 · 团队现场制作",
-      "fit": "cover"
+      "src": "media/team-core-group.webp",
+      "alt": "核心骨干团队合照",
+      "caption": "核心骨干",
+      "fit": "contain",
+      "width": 1600,
+      "height": 1068
     },
-    "heroCaption": "ON SET / 快手 · 马路实装秀",
-    "heroCaseId": "case-25",
+    "heroCaption": "核心骨干 · 团队合照",
     "featuredIds": [
       "case-25",
       "case-4",
@@ -22,7 +24,41 @@
     "contactText": "从一个具体的业务问题开始，一起把想法做成作品。",
     "about": "我们是小题旅行运营四部「点石成金」。一群做内容、懂运营、在现场的人。把创意带到品牌官号、社交平台、直播间和真实场景，让每一次表达回应具体的业务问题。",
     "updatedAt": "2026-11-08",
-    "directorId": "member-1"
+    "directorId": "member-1",
+    "heroGallery": [
+      {
+        "src": "media/team-huandou-group.webp",
+        "alt": "欢乐斗帝团队合照",
+        "caption": "欢乐斗帝",
+        "fit": "contain",
+        "width": 1620,
+        "height": 1080
+      },
+      {
+        "src": "media/team-niuniu-group.webp",
+        "alt": "勇敢牛牛团队合照",
+        "caption": "勇敢牛牛",
+        "fit": "contain",
+        "width": 1440,
+        "height": 1080
+      },
+      {
+        "src": "media/team-tousha-group.webp",
+        "alt": "投啥啥爆团队合照",
+        "caption": "投啥啥爆",
+        "fit": "contain",
+        "width": 1600,
+        "height": 1068
+      },
+      {
+        "src": "media/team-shime-group.webp",
+        "alt": "什么都成团队合照",
+        "caption": "什么都成",
+        "fit": "contain",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
   },
   "cases": [
     {

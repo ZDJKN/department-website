@@ -52,6 +52,7 @@ const schema = {
         eyebrow: string,
         heroImage: image,
         heroCaption: string,
+        heroGallery: array(image),
         heroCaseId: id,
         featuredIds: array(id),
         email: { type: "string", maxLength: 200 },

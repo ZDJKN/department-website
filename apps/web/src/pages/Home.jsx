@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Arrow, href, pad, Photo, Label, Title } from "../components/ui.jsx";
 import { CaseCard } from "../components/work.jsx";
 import { rootTeams } from "../../../../packages/contracts/organization.js";
@@ -11,9 +11,19 @@ function Home({ data }) {
   const featured = site.featuredIds
     .map((id) => cases.find((x) => x.id === id))
     .filter(Boolean);
-  const heroPath = cases.some((c) => c.id === site.heroCaseId)
-    ? "case/" + site.heroCaseId
-    : "cases";
+  const photos = [site.heroImage, ...(site.heroGallery || [])]
+    .filter(Boolean)
+    .filter(
+      (image, index, images) =>
+        images.findIndex((other) => other.src === image.src) === index,
+    );
+  const [selectedPhoto, setSelectedPhoto] = useState("");
+  const photo =
+    photos.find((image) => image.src === selectedPhoto) || photos[0];
+  const caption =
+    (photo?.src === site.heroImage?.src ? site.heroCaption : photo?.caption) ||
+    photo?.alt ||
+    "团队合照";
   return (
     <>
       <section className="studio-masthead wrap">
@@ -35,23 +45,46 @@ function Home({ data }) {
             </a>
           </div>
         </div>
-        <a className="studio-field-note" href={href(heroPath)} data-enter>
+        <figure className="studio-field-note" data-enter>
           <div className="studio-field-photo">
             <Photo
-              image={site.heroImage}
+              image={photo}
               loading="eager"
               fetchPriority="high"
-              width={site.heroImage?.width || 1800}
-              height={site.heroImage?.height || 1200}
+              width={photo?.width || 1800}
+              height={photo?.height || 1200}
+              style={{ objectFit: "contain" }}
             />
           </div>
-          <div className="studio-field-caption">
-            <span>{site.heroCaption}</span>
-            <span className="studio-field-action">
-              看项目 <Arrow diagonal />
+          <figcaption className="studio-field-caption">
+            <span aria-live="polite" aria-atomic="true">
+              {caption}
             </span>
-          </div>
-        </a>
+            <a className="studio-field-action" href={href("teams")}>
+              认识团队 <Arrow diagonal />
+            </a>
+          </figcaption>
+          {photos.length > 1 && (
+            <div
+              className="studio-photo-selector"
+              role="group"
+              aria-label="选择团队合照"
+            >
+              {photos.map((image, index) => (
+                <button
+                  type="button"
+                  key={image.src}
+                  aria-pressed={photo.src === image.src}
+                  aria-label={`查看第 ${index + 1} 张团队合照，${image.caption || image.alt}`}
+                  onClick={() => setSelectedPhoto(image.src)}
+                >
+                  <span aria-hidden="true">{pad(index + 1)}</span>
+                  {image.caption || image.alt}
+                </button>
+              ))}
+            </div>
+          )}
+        </figure>
         <div className="studio-brand-index" aria-label="合作项目涉及的品牌">
           <span>项目涉及品牌</span>
           <ul>
@@ -82,7 +115,7 @@ function Home({ data }) {
         </div>
         <div className="work-grid">
           {featured.map((c, i) => (
-            <CaseCard key={c.id} item={c} index={i} featured />
+            <CaseCard key={c.id} item={c} index={i} featured onePagePreview />
           ))}
         </div>
       </section>

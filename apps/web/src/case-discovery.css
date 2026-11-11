@@ -209,13 +209,6 @@
   gap: clamp(28px, 4vw, 64px) clamp(15px, 2.25vw, 31px);
 }
 
-.case-deck-cover {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #101a38;
-}
-
 .case-collection-grid .case-link {
   display: block;
 }
