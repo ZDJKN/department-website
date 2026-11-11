@@ -222,19 +222,13 @@
 }
 
 .studio-selected .work-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(28px, 4vw, 64px) clamp(15px, 2.25vw, 31px);
 }
 
 .studio-selected .work-grid .case-card:nth-child(n) {
   grid-column: auto;
   margin-top: 0;
-}
-
-@media (max-width: 1060px) {
-  .studio-selected .work-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 840px) {

@@ -50,13 +50,6 @@ function CaseOnePage({ item, team, thumbnail = false }) {
           <div className="case-sheet-brief">
             <span className="case-sheet-client">{item.client}</span>
             <h2>{item.name}</h2>
-            <p className="case-sheet-summary">{item.summary}</p>
-            {item.background && (
-              <div className="case-sheet-context">
-                <h3>项目背景</h3>
-                <p>{item.background}</p>
-              </div>
-            )}
           </div>
           <figure
             className="case-sheet-visual"
@@ -87,32 +80,44 @@ function CaseOnePage({ item, team, thumbnail = false }) {
               </figcaption>
             )}
           </figure>
-          {results.length > 0 && (
-            <section className="case-sheet-results" aria-label="项目成果">
-              <h3>项目成果</h3>
-              <dl>
-                {results.map(([value, label], index) => (
-                  <div key={index}>
-                    <dt>{label}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
-          )}
         </div>
-        {services.length > 0 && (
-          <section className="case-sheet-work" aria-label="项目执行">
-            <h3>项目执行</h3>
-            <ol>
-              {services.map((service, index) => (
-                <li key={index}>
-                  <span aria-hidden="true">{pad(index + 1)}</span>
-                  {service}
-                </li>
+        {results.length > 0 && (
+          <section className="case-sheet-results" aria-label="项目成果">
+            <h3>项目成果</h3>
+            <dl>
+              {results.map(([value, label], index) => (
+                <div
+                  key={index}
+                  className={index === 0 ? "is-primary" : undefined}
+                >
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
               ))}
-            </ol>
+            </dl>
           </section>
+        )}
+        {!thumbnail && (
+          <div className="case-sheet-details">
+            <section className="case-sheet-context" aria-label="项目背景">
+              <h3>项目背景</h3>
+              <p className="case-sheet-summary">{item.summary}</p>
+              {item.background && <p>{item.background}</p>}
+            </section>
+            {services.length > 0 && (
+              <section className="case-sheet-work" aria-label="项目执行">
+                <h3>项目执行</h3>
+                <ol>
+                  {services.map((service, index) => (
+                    <li key={index}>
+                      <span aria-hidden="true">{pad(index + 1)}</span>
+                      {service}
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
+          </div>
         )}
         <footer className="case-sheet-foot">
           <span>{team?.name || "运营四部"}</span>
